@@ -4,7 +4,7 @@ return {
     "zbirenbaum/copilot.lua",
     cmd = "Copilot",
     build = ":Copilot auth",
-    event = { "VimEnter" },
+    event = "VeryLazy",
     config = function()
       require("copilot").setup({
         suggestion = {
@@ -31,12 +31,10 @@ return {
   -- Copilot-cmp (nvim-cmp와 연동)
   {
     "zbirenbaum/copilot-cmp",
-    dependencies = "copilot.lua",
-    event = { "InsertEnter" },
+    dependencies = { "copilot.lua", "hrsh7th/nvim-cmp" },
+    event = "InsertEnter",
     config = function()
-      require("copilot_cmp").setup({
-        -- 필요시 추가 설정 가능
-      })
+      require("copilot_cmp").setup()
     end,
   },
 
@@ -47,36 +45,62 @@ return {
     dependencies = {
       "nvim-lua/plenary.nvim",
       "zbirenbaum/copilot.lua",
+      "nvim-telescope/telescope.nvim", -- CopilotChat에서 사용
     },
-    cmd = "CopilotChat",
+    -- "lazy" will automatically load plugins that have a `cmd` on startup.
+    -- To ensure the keymaps work on startup, we will remove `cmd`.
+    -- If you want to lazy-load this plugin, use `event` instead of `cmd`.
+    -- For example: `event = "VeryLazy"`
+    event = "VeryLazy",
     config = function()
       require("CopilotChat").setup({
+        debug = false,
         show_help_at_start = false,
-        -- 채팅창 레이아웃 및 테두리 설정
+
+        -- 개선된 창 설정: 화면 중앙에 플로팅 창으로 띄웁니다.
         window = {
-          layout = "vertical", -- 수직 분할
-          width = 0.5,         -- 화면 너비의 50% 사용
+          layout = "float",
+          width = 0.8,
+          height = 0.8,
+          border = "rounded", -- 둥근 테두리 사용
+          relative = "editor",
+          title = "CopilotChat",
         },
-        border = "rounded",    -- 둥근 테두리 사용
+
+        -- 채팅창 하이라이트 그룹 설정
+        -- 사용하는 테마에 맞게 색상을 직접 지정할 수 있습니다.
+        -- 아래는 Catppuccin 테마를 기준으로 한 예시입니다.
+        matches = {
+          {
+            pattern = "CopilotChatNormal",
+            highlight = "NormalFloat",
+          },
+          {
+            pattern = "CopilotChatBorder",
+            highlight = "FloatBorder",
+          },
+          -- 마크다운 코드 블록 하이라이트
+          {
+            pattern = "markdownCodeBlock",
+            highlight = { bg = "#313244" },
+          },
+        },
+
+        -- 채팅창 명령어 커스텀
+        prompts = {
+          -- 기본 명령어 외에 자신만의 명령어를 추가할 수 있습니다.
+          -- 예를 들어, "refactor" 명령어를 추가
+          refactor = {
+            prompt = "Please refactor the following code to be more concise and readable.",
+            model = "gpt-4",
+          },
+        },
       })
 
-      -- 하이라이트 그룹을 직접 수정해 채팅창 색상 변경
-      -- 원하는 색상 코드로 변경 가능
-      vim.api.nvim_create_autocmd("FileType", {
-        pattern = "CopilotChat",
-        callback = function()
-          vim.api.nvim_set_hl(0, "CopilotChatNormal", { fg = "#cdd6f4", bg = "#1e1e2e" })
-          vim.api.nvim_set_hl(0, "CopilotChatUser", { fg = "#89b4fa" })
-          vim.api.nvim_set_hl(0, "CopilotChatResponse", { fg = "#a6e3a1" })
-          vim.api.nvim_set_hl(0, "CopilotChatBorder", { fg = "#b4befe" })
-          vim.api.nvim_set_hl(0, "markdownCodeBlock", { bg = "#313244" })
-        end,
-      })
-
-      -- 단축키 설정
-      vim.keymap.set("n", "<leader>cc", "<cmd>CopilotChat<cr>", { desc = "Open Copilot Chat" })
-      vim.keymap.set("n", "<leader>cce", "<cmd>CopilotChatExplain<cr>", { desc = "Explain code" })
-      vim.keymap.set("v", "<leader>ccr", "<cmd>CopilotChatReview<cr>", { desc = "Review selected code" })
+      -- 키맵핑 설정: CopilotChat을 더 쉽게 사용하도록 합니다.
+      -- Normal 모드와 Visual 모드에서 모두 사용 가능
+      vim.keymap.set('n', '<leader>mm', '<cmd>CopilotChatToggle<cr>', { desc = 'Toggle CopilotChat' })
+      vim.keymap.set('v', '<leader>ms', '<cmd>CopilotChat<cr>', { desc = 'Chat with selected code' })
     end,
   },
 }

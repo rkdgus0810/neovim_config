@@ -83,6 +83,6 @@ vim.keymap.set("n", "<leader>zt", function()
 end, { desc = "Toggle ZenMode (with Twilight)" })
 
 -- save & quit command
-vim.keymap.set("n", "<Leader>w", ":w<CR>", { desc = "Save file" })
-vim.keymap.set("n", "<Leader>q", ":q<CR>", { desc = "Quit file" })
+vim.keymap.set("n", "<Leader>w", ":w!<CR>", { desc = "Save file" })
+vim.keymap.set("n", "<Leader>q", ":q!<CR>", { desc = "Quit file" })
 vim.keymap.set("n", "<Leader>x", ":wq<CR>", { desc = "Save and quit" })
