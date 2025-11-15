@@ -39,6 +39,7 @@ branch	lazy-lock.json	/^  "indent-blankline.nvim": { "branch": "master", "commit
 branch	lazy-lock.json	/^  "lazy.nvim": { "branch": "main", "commit": "6c3bda4aca61a13a9c63f1c1d1b16b9d3be90d7a" },$/;"	s	language:JSON	object:lazy.nvim
 branch	lazy-lock.json	/^  "lsp-colors.nvim": { "branch": "main", "commit": "2bbe7541747fd339bdd8923fc45631a09bb4f1e5" },$/;"	s	language:JSON	object:lsp-colors.nvim
 branch	lazy-lock.json	/^  "lspsaga.nvim": { "branch": "main", "commit": "8efe00d6aed9db6449969f889170f1a7e43101a1" },$/;"	s	language:JSON	object:lspsaga.nvim
+branch	lazy-lock.json	/^  "lualine.nvim": { "branch": "master", "commit": "b8c23159c0161f4b89196f74ee3a6d02cdc3a955" },$/;"	s	language:JSON	object:lualine.nvim
 branch	lazy-lock.json	/^  "mason-lspconfig.nvim": { "branch": "main", "commit": "5e085efe67fccb13372d54331d849219662a7e9/;"	s	language:JSON	object:mason-lspconfig.nvim
 branch	lazy-lock.json	/^  "mason.nvim": { "branch": "main", "commit": "7dc4facca9702f95353d5a1f87daf23d78e31c2a" },$/;"	s	language:JSON	object:mason.nvim
 branch	lazy-lock.json	/^  "neo-tree.nvim": { "branch": "v3.x", "commit": "f1deac7ecec88c28a250d890ba7bb35843e69cbd" },$/;"	s	language:JSON	object:neo-tree.nvim
@@ -98,6 +99,7 @@ commit	lazy-lock.json	/^  "indent-blankline.nvim": { "branch": "master", "commit
 commit	lazy-lock.json	/^  "lazy.nvim": { "branch": "main", "commit": "6c3bda4aca61a13a9c63f1c1d1b16b9d3be90d7a" },$/;"	s	language:JSON	object:lazy.nvim
 commit	lazy-lock.json	/^  "lsp-colors.nvim": { "branch": "main", "commit": "2bbe7541747fd339bdd8923fc45631a09bb4f1e5" },$/;"	s	language:JSON	object:lsp-colors.nvim
 commit	lazy-lock.json	/^  "lspsaga.nvim": { "branch": "main", "commit": "8efe00d6aed9db6449969f889170f1a7e43101a1" },$/;"	s	language:JSON	object:lspsaga.nvim
+commit	lazy-lock.json	/^  "lualine.nvim": { "branch": "master", "commit": "b8c23159c0161f4b89196f74ee3a6d02cdc3a955" },$/;"	s	language:JSON	object:lualine.nvim
 commit	lazy-lock.json	/^  "mason-lspconfig.nvim": { "branch": "main", "commit": "5e085efe67fccb13372d54331d849219662a7e9/;"	s	language:JSON	object:mason-lspconfig.nvim
 commit	lazy-lock.json	/^  "mason.nvim": { "branch": "main", "commit": "7dc4facca9702f95353d5a1f87daf23d78e31c2a" },$/;"	s	language:JSON	object:mason.nvim
 commit	lazy-lock.json	/^  "neo-tree.nvim": { "branch": "v3.x", "commit": "f1deac7ecec88c28a250d890ba7bb35843e69cbd" },$/;"	s	language:JSON	object:neo-tree.nvim
@@ -131,7 +133,7 @@ config	lua/plugins/conform.lua	/^	config = function()$/;"	f	language:Lua
 config	lua/plugins/copilot.lua	/^    config = function()$/;"	f	language:Lua
 config	lua/plugins/hover.lua	/^  config = function()$/;"	f	language:Lua
 config	lua/plugins/lsp.lua	/^    config = function()$/;"	f	language:Lua
-config	lua/plugins/lualine.lua	/^    config = function()$/;"	f	language:Lua
+config	lua/plugins/lualine.lua	/^  config = function()$/;"	f	language:Lua
 config	lua/plugins/neoscroll.lua	/^  config = function()$/;"	f	language:Lua
 config	lua/plugins/noice.lua	/^    config = function()$/;"	f	language:Lua
 config	lua/plugins/nordic.lua	/^  config = function()$/;"	f	language:Lua
@@ -157,6 +159,7 @@ init	lua/plugins/hover.lua	/^      init = function()$/;"	f	language:Lua
 lazy.nvim	lazy-lock.json	/^  "lazy.nvim": { "branch": "main", "commit": "6c3bda4aca61a13a9c63f1c1d1b16b9d3be90d7a" },$/;"	o	language:JSON
 lsp-colors.nvim	lazy-lock.json	/^  "lsp-colors.nvim": { "branch": "main", "commit": "2bbe7541747fd339bdd8923fc45631a09bb4f1e5" },$/;"	o	language:JSON
 lspsaga.nvim	lazy-lock.json	/^  "lspsaga.nvim": { "branch": "main", "commit": "8efe00d6aed9db6449969f889170f1a7e43101a1" },$/;"	o	language:JSON
+lualine.nvim	lazy-lock.json	/^  "lualine.nvim": { "branch": "master", "commit": "b8c23159c0161f4b89196f74ee3a6d02cdc3a955" },$/;"	o	language:JSON
 mapKey	lua/plugins/lsp.lua	/^local function mapKey(lhs, rhs, opts)$/;"	f	language:Lua
 mason-lspconfig.nvim	lazy-lock.json	/^  "mason-lspconfig.nvim": { "branch": "main", "commit": "5e085efe67fccb13372d54331d849219662a7e9/;"	o	language:JSON
 mason.nvim	lazy-lock.json	/^  "mason.nvim": { "branch": "main", "commit": "7dc4facca9702f95353d5a1f87daf23d78e31c2a" },$/;"	o	language:JSON

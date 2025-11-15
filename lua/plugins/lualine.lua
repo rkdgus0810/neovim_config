@@ -1,32 +1,32 @@
--- plugins/ctags.lua
-
 return {
-  {
-    "ludovicchabant/vim-gutentags",
-    config = function()
-      -- gutentags 기본 설정
-      vim.g.gutentags_enabled = 1
-      vim.g.gutentags_generate_on_write = 1
-      vim.g.gutentags_generate_on_missing = 1
-
-      -- Neo-tree 충돌 해결을 위한 핵심 설정
-      -- 프로젝트 루트를 찾을 때 `.git`과 같은 버전 관리 시스템을 최우선으로 찾도록 설정합니다.
-      -- 이는 Neovim 내부 파일을 프로젝트로 인식하지 않게 합니다.
-      vim.g.gutentags_project_root_priority = { '.git', '.hg', '.svn', '.root' }
-
-      -- ctags 생성 시 무시할 파일 형식을 지정합니다.
-      -- 'vim'과 'lua'는 Neovim의 내부 스크립트 파일이므로, 이들을 무시하도록 설정합니다.
-      vim.g.gutentags_ctags_ignore = { 'vim', 'lua' }
-
-      -- ctags 추가 인자 설정
-      vim.g.gutentags_ctags_extra_args = { '--fields=+l' }
-    end
-  },
-  {
-    "preservim/tagbar",
-    cmd = "TagbarToggle",
-    keys = {
-      { "<F8>", ":TagbarToggle<CR>", desc = "Toggle Tagbar" }
-    }
-  }
+  "nvim-lualine/lualine.nvim",
+  dependencies = { "nvim-tree/nvim-web-devicons" },
+  config = function()
+    require("lualine").setup({
+      options = {
+        theme = "nordic", -- 북유럽 테마를 설정
+        section_separators = { "", "" }, -- 섹션 구분 기호
+        component_separators = { "", "" }, -- 컴포넌트 구분 기호
+        globalstatus = true, -- 전체 화면 상태라인 적용
+      },
+      sections = {
+        -- 왼쪽 섹션: 파일명, 파일 인코딩, 파일 형식
+        lualine_a = { "mode" },     -- 모드 표시 (예: Normal, Insert 등)
+        lualine_b = { "branch" },   -- Git 브랜치 표시
+        lualine_c = { "filename" }, -- 파일명 표시
+        -- 오른쪽 섹션: 인코딩, 파일 형식, 진행상황, 위치, 시간
+        lualine_x = { "encoding", "fileformat" },
+        lualine_y = { "progress" },
+        lualine_z = {
+          "location",                  -- 커서 위치
+          function()
+            return os.date("%H:%M:%S") -- 시간 표시
+          end,
+        },
+      },
+      refresh = {
+        statusline = 500, -- 500ms마다 상태라인 새로 고침
+      },
+    })
+  end,
 }
