@@ -257,7 +257,7 @@ require("config.lazy")
 
 <div align="center">
 
-![Alpha Dashboard](preview/alpha-dashboard.png)
+![Alpha Dashboard](preview/alpha.png)
 
 *Alpha. nvim 대시보드 - 깔끔한 시작 화면*
 
@@ -269,7 +269,7 @@ require("config.lazy")
 
 <div align="center">
 
-![Coding View](preview/coding-view.png)
+![Coding View](preview/edit.png)
 
 *Nordic 테마 + Lualine 상태바 + LSP 진단*
 
@@ -281,7 +281,7 @@ require("config.lazy")
 
 <div align="center">
 
-![LSP Completion](preview/lsp-completion.png)
+![LSP Completion](preview/lsp.png)
 
 *nvim-cmp 자동 완성 + LSP 문서*
 
@@ -305,7 +305,7 @@ require("config.lazy")
 
 <div align="center">
 
-![Avante AI](preview/avante-ai.png)
+![Avante AI](preview/copilot.png)
 
 *Gemini/OpenAI와 실시간 대화하며 코딩*
 
@@ -317,7 +317,7 @@ require("config.lazy")
 
 <div align="center">
 
-![Toggleterm](preview/toggleterm.png)
+![Toggleterm](preview/terminal.png)
 
 *Curved 테두리의 플로팅 터미널*
 
